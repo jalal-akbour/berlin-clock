@@ -49,8 +49,4 @@ public class BerlinClockSingleHoursRowTest {
         // Assert
         assertThat(berlinClockTime.getSingleHoursRow()).isEqualTo("RRRR");
     }
-
-
-
-
 }

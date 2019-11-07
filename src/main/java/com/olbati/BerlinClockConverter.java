@@ -9,6 +9,10 @@ public class BerlinClockConverter {
     final static private String redLamp = "R";
     final static private String offLamp = "O";
 
+    final static private int singleHoursRowLength = 4;
+    final static private int fiveMinutesRowLength = 11;
+    final static private int singleMinutesRowLength = 4;
+
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss");
 
     public BerlinClock digital_to_berlin_convertor (String digitalTimeValue) {
@@ -29,8 +33,6 @@ public class BerlinClockConverter {
         return berlinClockValue;
     }
 
-
-
     public String calculate_single_minutes_row (int digitalTimeMinutes) {
 
         int singleMinutesValue = digitalTimeMinutes % 5;
@@ -40,7 +42,7 @@ public class BerlinClockConverter {
             singleMinutesRow.append(yellowLamp);
         }
 
-        while (singleMinutesRow.length() < 4) {
+        while (singleMinutesRow.length() < singleMinutesRowLength) {
             singleMinutesRow.append(offLamp);
         }
         return singleMinutesRow.toString();
@@ -59,7 +61,7 @@ public class BerlinClockConverter {
             }
         }
 
-        while (fiveMinutesRow.length() < 11) {
+        while (fiveMinutesRow.length() < fiveMinutesRowLength) {
             fiveMinutesRow.append(offLamp);
         }
         return fiveMinutesRow.toString();
@@ -73,7 +75,7 @@ public class BerlinClockConverter {
             singleHoursRow.append(redLamp);
         }
 
-        while (singleHoursRow.length() < 4) {
+        while (singleHoursRow.length() < singleHoursRowLength) {
             singleHoursRow.append(offLamp);
         }
         return singleHoursRow.toString();
