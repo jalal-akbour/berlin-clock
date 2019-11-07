@@ -33,9 +33,13 @@ public class BerlinClockConverter {
         String fiveHoursRow = calculate_five_hours_row(time.getHour());
         berlinClockValue.setFiveHoursRow(fiveHoursRow);
 
+        String secondsLamp = calculate_seconds_lamp_value(time.getSecond());
+        berlinClockValue.setSecondsLamp(secondsLamp);
+
 
         return berlinClockValue;
     }
+
 
 
     public String calculate_single_minutes_row (int digitalTimeMinutes) {
@@ -98,5 +102,16 @@ public class BerlinClockConverter {
             fiveHoursRow.append(offLamp);
         }
         return fiveHoursRow.toString();
+    }
+
+    private String calculate_seconds_lamp_value (int digitalTimeSeconds) {
+
+        if(digitalTimeSeconds % 2 == 0){
+            return "Y";
+        }
+        else{
+            return "O";
+        }
+
     }
 }

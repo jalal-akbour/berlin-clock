@@ -2,7 +2,7 @@ package com.olbati;
 
 public class BerlinClock {
 
-    private String secondLamp;
+    private String secondsLamp;
     private String fiveHoursRow;
     private String singleHoursRow;
     private String fiveMinutesRow;
@@ -11,20 +11,20 @@ public class BerlinClock {
     public BerlinClock () {
     }
 
-    public BerlinClock (String secondLamp, String fiveHoursRow, String singleHoursRow, String fiveMinutesRow, String singleMinutesRow) {
-        this.secondLamp = secondLamp;
+    public BerlinClock (String secondsLamp, String fiveHoursRow, String singleHoursRow, String fiveMinutesRow, String singleMinutesRow) {
+        this.secondsLamp = secondsLamp;
         this.fiveHoursRow = fiveHoursRow;
         this.singleHoursRow = singleHoursRow;
         this.fiveMinutesRow = fiveMinutesRow;
         this.singleMinutesRow = singleMinutesRow;
     }
 
-    public String getSecondLamp () {
-        return secondLamp;
+    public String getSecondsLamp () {
+        return secondsLamp;
     }
 
-    public void setSecondLamp (String secondLamp) {
-        this.secondLamp = secondLamp;
+    public void setSecondsLamp (String secondsLamp) {
+        this.secondsLamp = secondsLamp;
     }
 
     public String getFiveHoursRow () {
