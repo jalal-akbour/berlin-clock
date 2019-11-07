@@ -7,7 +7,7 @@ public class BerlinClockConverter {
 
     private final static String yellowLamp = "Y";
     private final static String redLamp = "R";
-    private final static String offLamp = "O";
+    private final static String lampOff = "O";
 
     private final static int fiveHoursRowLength = 4;
     private final static int singleHoursRowLength = 4;
@@ -16,7 +16,7 @@ public class BerlinClockConverter {
 
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss");
 
-    public BerlinClock digital_to_berlin_convertor (String digitalTimeValue) {
+    public BerlinClock digital_to_berlin_converter (String digitalTimeValue) {
         BerlinClock berlinClockValue = new BerlinClock();
 
         LocalTime time = LocalTime.parse(digitalTimeValue, formatter);
@@ -36,7 +36,6 @@ public class BerlinClockConverter {
         String secondsLamp = calculate_seconds_lamp_value(time.getSecond());
         berlinClockValue.setSecondsLamp(secondsLamp);
 
-
         return berlinClockValue;
     }
 
@@ -51,7 +50,7 @@ public class BerlinClockConverter {
         }
 
         while (singleMinutesRow.length() < singleMinutesRowLength) {
-            singleMinutesRow.append(offLamp);
+            singleMinutesRow.append(lampOff);
         }
         return singleMinutesRow.toString();
     }
@@ -70,7 +69,7 @@ public class BerlinClockConverter {
         }
 
         while (fiveMinutesRow.length() < fiveMinutesRowLength) {
-            fiveMinutesRow.append(offLamp);
+            fiveMinutesRow.append(lampOff);
         }
         return fiveMinutesRow.toString();
     }
@@ -78,30 +77,29 @@ public class BerlinClockConverter {
     private String calculate_single_hours_row (int digitalTimeHours) {
 
         int singleHoursValue = digitalTimeHours % 5;
-        StringBuilder singleHoursRow = new StringBuilder();
 
-        for (int i = 1; i <= singleHoursValue; i++) {
-            singleHoursRow.append(redLamp);
-        }
+        return fill_hours_rows(singleHoursValue, singleHoursRowLength);
 
-        while (singleHoursRow.length() < singleHoursRowLength) {
-            singleHoursRow.append(offLamp);
-        }
-        return singleHoursRow.toString();
     }
 
     private String calculate_five_hours_row (int digitalTimeHours) {
         int fiveHoursValue = digitalTimeHours / 5;
-        StringBuilder fiveHoursRow = new StringBuilder();
 
-        for (int i = 1; i <= fiveHoursValue; i++) {
-            fiveHoursRow.append(redLamp);
+        return fill_hours_rows(fiveHoursValue, fiveHoursRowLength);
+    }
+
+    private String fill_hours_rows (int timeValue, int rowLength) {
+
+        StringBuilder rowValue = new StringBuilder();
+
+        for (int i = 1; i <= timeValue; i++) {
+            rowValue.append(redLamp);
         }
 
-        while (fiveHoursRow.length() < fiveHoursRowLength) {
-            fiveHoursRow.append(offLamp);
+        while (rowValue.length() < rowLength) {
+            rowValue.append(lampOff);
         }
-        return fiveHoursRow.toString();
+        return rowValue.toString();
     }
 
     private String calculate_seconds_lamp_value (int digitalTimeSeconds) {

@@ -60,13 +60,10 @@ public class BerlinClock {
     }
 
     public String getEntireIntegratedValue () {
-        return this.secondsLamp +
-                this.fiveHoursRow +
+        return this.secondsLamp     +
+                this.fiveHoursRow   +
                 this.singleHoursRow +
                 this.fiveMinutesRow +
                 this.singleMinutesRow;
-
-
-      // return "";
     }
 }
