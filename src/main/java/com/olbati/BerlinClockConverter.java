@@ -22,8 +22,14 @@ public class BerlinClockConverter {
         String fiveMinutesRow = calculate_five_minutes_row(time.getMinute());
         berlinClockValue.setFiveMinutesRow(fiveMinutesRow);
 
+        String singleHoursRow = calculate_single_hours_row(time.getHour());
+        berlinClockValue.setSingleHoursRow(singleHoursRow);
+
+
         return berlinClockValue;
     }
+
+
 
     public String calculate_single_minutes_row (int digitalTimeMinutes) {
 
@@ -31,31 +37,45 @@ public class BerlinClockConverter {
         StringBuilder singleMinutesRow = new StringBuilder();
 
         for (int i = 1; i <= singleMinutesValue; i++) {
-            singleMinutesRow.append("Y");
+            singleMinutesRow.append(yellowLamp);
         }
 
         while (singleMinutesRow.length() < 4) {
-            singleMinutesRow.append("O");
+            singleMinutesRow.append(offLamp);
         }
         return singleMinutesRow.toString();
     }
 
     public String calculate_five_minutes_row (int digitalTimeMinutes) {
 
-        int singleMinutesValue = digitalTimeMinutes / 5;
-        StringBuilder singleMinutesRow = new StringBuilder();
+        int fiveMinutesValue = digitalTimeMinutes / 5;
+        StringBuilder fiveMinutesRow = new StringBuilder();
 
-        for (int i = 1; i <= singleMinutesValue; i++) {
+        for (int i = 1; i <= fiveMinutesValue; i++) {
             if (i % 3 == 0) {
-                singleMinutesRow.append(redLamp);
+                fiveMinutesRow.append(redLamp);
             } else {
-                singleMinutesRow.append(yellowLamp);
+                fiveMinutesRow.append(yellowLamp);
             }
         }
 
-        while (singleMinutesRow.length() < 11) {
-            singleMinutesRow.append(offLamp);
+        while (fiveMinutesRow.length() < 11) {
+            fiveMinutesRow.append(offLamp);
         }
-        return singleMinutesRow.toString();
+        return fiveMinutesRow.toString();
+    }
+    private String calculate_single_hours_row (int digitalTimeHours) {
+
+        int singleHoursValue = digitalTimeHours % 5;
+        StringBuilder singleHoursRow = new StringBuilder();
+
+        for (int i = 1; i <= singleHoursValue; i++) {
+            singleHoursRow.append(redLamp);
+        }
+
+        while (singleHoursRow.length() < 4) {
+            singleHoursRow.append(offLamp);
+        }
+        return singleHoursRow.toString();
     }
 }
