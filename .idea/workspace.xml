@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5fb22eb2-b64f-4424-b54c-407568e72fb2" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/olbati/BerlinClockFiveHoursRowTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/olbati/BerlinClockConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/olbati/BerlinClockConverter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/olbati/BerlinClockSingleHoursRowTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/olbati/BerlinClockSingleHoursRowTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/olbati/BerlinClockConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/olbati/BerlinClockConverter.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -49,18 +49,16 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.BerlinClockFiveMinutesRowTest and 2 more">
-    <configuration name="BerlinClockConverterTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.BerlinClockFiveHoursRowTest and 3 more">
+    <configuration name="BerlinClockFiveHoursRowTest and 3 more" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="berlin-clock" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.olbati.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.olbati" />
-      <option name="MAIN_CLASS_NAME" value="com.olbati.BerlinClockConverterTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="pattern" />
+      <patterns>
+        <pattern testClass="com.olbati.BerlinClockFiveHoursRowTest" />
+        <pattern testClass="com.olbati.BerlinClockFiveMinutesRowTest" />
+        <pattern testClass="com.olbati.BerlinClockSingleHoursRowTest" />
+        <pattern testClass="com.olbati.BerlinClockSingleMinutesRowTest" />
+      </patterns>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -120,11 +118,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.BerlinClockFiveHoursRowTest and 3 more" />
         <item itemvalue="JUnit.BerlinClockFiveMinutesRowTest and 2 more" />
         <item itemvalue="JUnit.BerlinClockFiveMinutesRowTest and 1 more" />
         <item itemvalue="JUnit.BerlinClockFiveMinutesRowTest" />
         <item itemvalue="JUnit.BerlinClockSingleMinutesRowTest" />
-        <item itemvalue="JUnit.BerlinClockConverterTest" />
       </list>
     </recent_temporary>
   </component>

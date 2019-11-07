@@ -9,6 +9,7 @@ public class BerlinClockConverter {
     final static private String redLamp = "R";
     final static private String offLamp = "O";
 
+    final static private int fiveHoursRowLength = 4;
     final static private int singleHoursRowLength = 4;
     final static private int fiveMinutesRowLength = 11;
     final static private int singleMinutesRowLength = 4;
@@ -29,9 +30,13 @@ public class BerlinClockConverter {
         String singleHoursRow = calculate_single_hours_row(time.getHour());
         berlinClockValue.setSingleHoursRow(singleHoursRow);
 
+        String fiveHoursRow = calculate_five_hours_row(time.getHour());
+        berlinClockValue.setFiveHoursRow(fiveHoursRow);
+
 
         return berlinClockValue;
     }
+
 
     public String calculate_single_minutes_row (int digitalTimeMinutes) {
 
@@ -79,5 +84,19 @@ public class BerlinClockConverter {
             singleHoursRow.append(offLamp);
         }
         return singleHoursRow.toString();
+    }
+
+    private String calculate_five_hours_row (int digitalTimeHours) {
+        int fiveHoursValue = digitalTimeHours / 5;
+        StringBuilder fiveHoursRow = new StringBuilder();
+
+        for (int i = 1; i <= fiveHoursValue; i++) {
+            fiveHoursRow.append(redLamp);
+        }
+
+        while (fiveHoursRow.length() < fiveHoursRowLength) {
+            fiveHoursRow.append(offLamp);
+        }
+        return fiveHoursRow.toString();
     }
 }
