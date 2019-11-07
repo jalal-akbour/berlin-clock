@@ -58,4 +58,15 @@ public class BerlinClock {
     public void setSingleMinutesRow (String singleMinutesRow) {
         this.singleMinutesRow = singleMinutesRow;
     }
+
+    public String getEntireIntegratedValue () {
+        return this.secondsLamp +
+                this.fiveHoursRow +
+                this.singleHoursRow +
+                this.fiveMinutesRow +
+                this.singleMinutesRow;
+
+
+      // return "";
+    }
 }

@@ -5,14 +5,14 @@ import java.time.format.DateTimeFormatter;
 
 public class BerlinClockConverter {
 
-    final static private String yellowLamp = "Y";
-    final static private String redLamp = "R";
-    final static private String offLamp = "O";
+    private final static String yellowLamp = "Y";
+    private final static String redLamp = "R";
+    private final static String offLamp = "O";
 
-    final static private int fiveHoursRowLength = 4;
-    final static private int singleHoursRowLength = 4;
-    final static private int fiveMinutesRowLength = 11;
-    final static private int singleMinutesRowLength = 4;
+    private final static int fiveHoursRowLength = 4;
+    private final static int singleHoursRowLength = 4;
+    private final static int fiveMinutesRowLength = 11;
+    private final static int singleMinutesRowLength = 4;
 
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss");
 
@@ -39,7 +39,6 @@ public class BerlinClockConverter {
 
         return berlinClockValue;
     }
-
 
 
     public String calculate_single_minutes_row (int digitalTimeMinutes) {
@@ -75,6 +74,7 @@ public class BerlinClockConverter {
         }
         return fiveMinutesRow.toString();
     }
+
     private String calculate_single_hours_row (int digitalTimeHours) {
 
         int singleHoursValue = digitalTimeHours % 5;
@@ -106,10 +106,9 @@ public class BerlinClockConverter {
 
     private String calculate_seconds_lamp_value (int digitalTimeSeconds) {
 
-        if(digitalTimeSeconds % 2 == 0){
+        if (digitalTimeSeconds % 2 == 0) {
             return "Y";
-        }
-        else{
+        } else {
             return "O";
         }
 
